@@ -23,5 +23,5 @@ public class StudentProfile {
 	private String lastName;
 	private String phoneNumber;
 	private String email;
-	private boolean isActive;
+	
 }
