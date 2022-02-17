@@ -40,7 +40,7 @@ public class StudentProfileController {
 		studentProfile.setPhoneNumber("0123456789");
 		studentProfile.setEmail("default@mail.com");
 		service.addStudentProfile(studentProfile);
-		return "Default profile has been added";
+		return "Default profile has been added successfully.";
 	}
 	
 	@PostMapping("/add-student-profile")
