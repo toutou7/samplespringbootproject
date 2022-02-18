@@ -3,7 +3,12 @@ package com.example.studentservice.controller;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.studentservice.model.StudentProfile;
 import com.example.studentservice.service.impl.StudentProfileServiceImpl;
@@ -28,32 +33,21 @@ public class StudentProfileController {
 	}
 	
 	@PostMapping("/default")
-	public String addDefault() {
+	public String addStudent() {
 		StudentProfile studentProfile = new StudentProfile();
 		studentProfile.setFirstName("Default First Name");
 		studentProfile.setLastName("Default Last Name");
 		studentProfile.setPhoneNumber("0123456789");
 		studentProfile.setEmail("default@mail.com");
 		service.addStudentProfile(studentProfile);
-		return "Default profile has been added";
+		return "Default profile has been added successfully.";
 	}
 	
 	@PostMapping("/add-student-profile")
-	public StudentProfile addStudentProfile(@RequestBody StudentProfile studentProfile) {
+	public StudentProfile addStudent(@RequestBody StudentProfile studentProfile) {
 		service.addStudentProfile(studentProfile);
 		return studentProfile;
 	}
 	
-	@PutMapping("/update-student-profile/{id}")
-	public String updateStudentProfile(@PathVariable("id") Long id, @RequestBody StudentProfile studentProfile) {
-		service.updateStudentProfile(id, studentProfile);
-		return "Updated!";
-	}
-
-	@DeleteMapping("/delete-student-profile/{id}")
-	public String deleteStudentProfile(@PathVariable("id") Long id) {
-		service.deleteStudentProfile(id);
-		return "Deleted";
-	}
-
+	
 }

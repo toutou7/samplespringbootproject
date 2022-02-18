@@ -10,6 +10,5 @@ public interface StudentProfileService {
 	List<StudentProfile> findAll();
 	Optional<StudentProfile> findById(Long id);
 	void addStudentProfile(StudentProfile studentProfile);
-	void updateStudentProfile(Long id, StudentProfile studentProfile);
-	void deleteStudentProfile(Long id);
+	
 }

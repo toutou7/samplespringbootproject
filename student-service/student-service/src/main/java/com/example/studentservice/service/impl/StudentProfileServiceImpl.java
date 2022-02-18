@@ -31,18 +31,4 @@ public class StudentProfileServiceImpl implements StudentProfileService {
 		repo.save(studentProfile);
 	}
 
-	@Override
-	public void updateStudentProfile(Long id, StudentProfile request) {
-		StudentProfile studentProfile = repo.getById(id);
-		studentProfile.setFirstName(request.getFirstName());
-		studentProfile.setLastName(request.getLastName());
-		studentProfile.setPhoneNumber(request.getPhoneNumber());
-		studentProfile.setEmail(request.getEmail());
-		repo.save(studentProfile);
-	}
-
-	@Override
-	public void deleteStudentProfile(Long id) {
-		repo.deleteById(id);
-	}
 }
