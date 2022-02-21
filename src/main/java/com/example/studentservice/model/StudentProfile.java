@@ -32,6 +32,7 @@ public class StudentProfile {
 	@Column(unique=true)
 	private String email;
 
-	//PR is Pull Request. How do I do that, huh? Hehehehe
+  //PR is Pull Request. How do I do that, huh? Hehehehe
+
 
 }
