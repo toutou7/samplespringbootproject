@@ -23,9 +23,4 @@ public class StudentProfile {
 	@Column(unique=true)
 	private String email;
 
-<<<<<<< HEAD
-	//updated version 2
-=======
-	//updated
->>>>>>> origin/main
 }
