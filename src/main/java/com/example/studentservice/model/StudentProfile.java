@@ -32,6 +32,6 @@ public class StudentProfile {
 	@Column(unique=true)
 	private String email;
 
-	//PR is Pull Request
+	//PR is Pull Request. How do I do that?
 
 }
