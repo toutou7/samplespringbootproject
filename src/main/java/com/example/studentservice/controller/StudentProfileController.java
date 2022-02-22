@@ -3,6 +3,7 @@ package com.example.studentservice.controller;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.studentservice.model.APIResponse;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.studentservice.model.StudentProfile;
@@ -54,6 +55,18 @@ public class StudentProfileController {
 	public String deleteStudentProfile(@PathVariable("id") Long id) {
 		service.deleteStudentProfile(id);
 		return "Deleted";
+	}
+
+	@GetMapping("/test/{id}")
+	public APIResponse test(@PathVariable("id") Long id) {
+		APIResponse response = new APIResponse();
+		if(service.findById(id).isPresent()) {
+			response.setCode("Found user with ID=" + Long.toString(id));
+			response.setStudentProfile(service.findById(id));
+		} else {
+			response.setCode("Cannot find user with ID=" + Long.toString(id));
+		}
+		return response;
 	}
 
 }

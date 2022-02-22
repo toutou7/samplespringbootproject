@@ -3,6 +3,7 @@ package com.example.studentservice.service.impl;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.studentservice.model.APIResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,4 +46,5 @@ public class StudentProfileServiceImpl implements StudentProfileService {
 	public void deleteStudentProfile(Long id) {
 		repo.deleteById(id);
 	}
+
 }
