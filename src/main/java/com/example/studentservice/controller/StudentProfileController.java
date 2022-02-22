@@ -1,5 +1,6 @@
 package com.example.studentservice.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,7 +18,7 @@ import lombok.AllArgsConstructor;
 public class StudentProfileController {
 
 	private StudentProfileServiceImpl service;
-	
+
 	@GetMapping("/student-profile")
 	public List<StudentProfile> findAll() {
 		return service.findAll();
@@ -35,6 +36,15 @@ public class StudentProfileController {
 		studentProfile.setLastName("Default Last Name");
 		studentProfile.setPhoneNumber("0123456789");
 		studentProfile.setEmail("default@mail.com");
+
+		List<String> course = new ArrayList<>();
+		course.add("Math");
+		course.add("Programming");
+		course.add("Physics");
+		course.add("Engineering");
+		studentProfile.setCourse(course);
+		System.out.println(studentProfile.getCourse());
+
 		service.addStudentProfile(studentProfile);
 		return "Default profile has been added";
 	}
