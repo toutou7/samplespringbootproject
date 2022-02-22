@@ -32,5 +32,4 @@ public class StudentProfile {
 	@Column(unique=true)
 	private String email;
 
-
 }
