@@ -43,7 +43,6 @@ public class StudentProfileController {
 		course.add("Physics");
 		course.add("Engineering");
 		studentProfile.setCourse(course);
-		System.out.println(studentProfile.getCourse());
 
 		service.addStudentProfile(studentProfile);
 		return "Default profile has been added";
