@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter @Setter
 @AllArgsConstructor
@@ -31,5 +32,8 @@ public class StudentProfile {
 
 	@Column(unique=true)
 	private String email;
+
+	@ElementCollection
+	private List<String> course;
 
 }
