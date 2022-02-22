@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.lang.Nullable;
 
 import java.util.Optional;
 
@@ -20,9 +19,6 @@ public class APIResponse {
     private String code;
 
     @JsonProperty("data")
-    @Nullable
     private Optional<StudentProfile> studentProfile;
-
-    //Again
 
 }
