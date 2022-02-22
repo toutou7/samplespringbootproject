@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import com.example.studentservice.model.APIResponse;
 import org.springframework.web.bind.annotation.*;
 
+import com.example.studentservice.model.APIResponse;
 import com.example.studentservice.model.StudentProfile;
 import com.example.studentservice.service.impl.StudentProfileServiceImpl;
 
