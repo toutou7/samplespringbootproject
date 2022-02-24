@@ -47,4 +47,13 @@ public class StudentProfileServiceImpl implements StudentProfileService {
 		repo.deleteById(id);
 	}
 
+	@Override
+	public APIResponse test(Long id) {
+		APIResponse response = new APIResponse();
+		response.setStudentProfile(repo.findById(id));
+		String code = (repo.findById(id).isPresent()) ? "Found user with ID=" + Long.toString(id)
+				: "Cannot find user with ID=" + Long.toString(id);
+		response.setCode(code);
+		return response;
+	}
 }

@@ -68,14 +68,7 @@ public class StudentProfileController {
 
 	@GetMapping("/test/{id}")
 	public APIResponse test(@PathVariable("id") Long id) {
-		APIResponse response = new APIResponse();
-		if(service.findById(id).isPresent()) {
-			response.setCode("Found user with ID=" + Long.toString(id));
-			response.setStudentProfile(service.findById(id));
-		} else {
-			response.setCode("Cannot find user with ID=" + Long.toString(id));
-		}
-		return response;
+		return service.test(id);
 	}
 
 }
