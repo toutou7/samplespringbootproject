@@ -31,21 +31,7 @@ public class StudentProfileController {
 	
 	@PostMapping("/default")
 	public String addDefault() {
-		StudentProfile studentProfile = new StudentProfile();
-		studentProfile.setFirstName("Default First Name");
-		studentProfile.setLastName("Default Last Name");
-		studentProfile.setPhoneNumber("0123456789");
-		studentProfile.setEmail("default@mail.com");
-
-		List<String> course = new ArrayList<>();
-		course.add("Math");
-		course.add("Programming");
-		course.add("Physics");
-		course.add("Engineering");
-		studentProfile.setCourse(course);
-
-		service.addStudentProfile(studentProfile);
-		return "Default profile has been added";
+		return service.addDefault();
 	}
 	
 	@PostMapping("/add-student-profile")
