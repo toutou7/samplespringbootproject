@@ -1,5 +1,6 @@
 package com.example.studentservice.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,6 +27,26 @@ public class StudentProfileServiceImpl implements StudentProfileService {
 	public Optional<StudentProfile> findById(Long id){
 		return repo.findById(id);
 	}
+
+	@Override
+	public String addDefault() {
+		StudentProfile studentProfile = new StudentProfile();
+		studentProfile.setFirstName("Default First Name");
+		studentProfile.setLastName("Default Last Name");
+		studentProfile.setPhoneNumber("0123456789");
+		studentProfile.setEmail("default@mail.com");
+
+		List<String> course = new ArrayList<>();
+		course.add("Math");
+		course.add("Programming");
+		course.add("Physics");
+		course.add("Engineering");
+		studentProfile.setCourse(course);
+
+		repo.save(studentProfile);
+		return "Default profile has been added";
+	}
+
 
 	@Override
 	public void addStudentProfile(StudentProfile studentProfile) {
