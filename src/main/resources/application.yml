@@ -1,0 +1,44 @@
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 20000
+        readTimeout: 20000
+        loggerLevel: basic
+
+spring:
+  application:
+    name: payment-gateway
+  profiles:
+    active: @spring.profiles.active@
+  cloud:
+    config:
+      enabled: true
+      label: latest
+  config:
+    import: optional:configserver:http://config-server:8888/config-server
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+  liquibase:
+    enabled: true
+
+server:
+  port: 9095
+  servlet:
+    context-path: /payment-gateway
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,env,beans,refresh
+        
+zuul:
+  SendErrorFilter:
+    post:
+      disable: true
+  routes:
+    foos:
+      path: /route/test
+      url: http://localhost:9095

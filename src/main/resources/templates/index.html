@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Hattha Pay</title>
+<link th:rel="icon" th:href="@{/img/htb.ico}">
+
+<link th:rel="stylesheet"
+	th:href="@{/webjars/bootstrap/4.6.1/css/bootstrap.min.css}" />
+<link th:rel="stylesheet" th:href="@{/css/app.min.css}" type="text/css">
+</head>
+<body>
+	<div class="header">
+		<div class="page-header">
+			<div class="d-flex justify-content-center">
+				<div class="d-inline-flex p-2">
+					<img th:src="@{/img/hattha-logo.svg}">
+				</div>
+			</div>
+			<div class="language-wrapper"></div>
+		</div>
+		<div class="header-shadow"></div>
+	</div>
+
+	<div class="page-body">
+		<div class="edc-card">
+			<div class="edc-header">
+				<div class="d-flex p-2">
+					<div class="d-flex flex-row">
+						<div class="p-2">
+							<img th:src="@{/img/edc-logo.svg}" />
+						</div>
+						<div class="p-2" style="font-size: 18px;">
+							Payment to<br> <b>Electricite du Cambodge (EDC)</b>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="edc-body">
+				<ul class="list-group">
+					<li
+						class="list-group-item d-flex justify-content-between align-items-center">
+						Trx ID <span class="badge badge-pill text-dark">000DF1234667</span>
+					</li>
+					<li
+						class="list-group-item d-flex justify-content-between align-items-center">
+						Ref No. <span class="badge badge-pill text-dark">00012345</span>
+					</li>
+					<li
+						class="list-group-item d-flex justify-content-between align-items-center">
+						Amount <span class="badge badge-pill text-dark"><b>0.00 USD</b></span>
+					</li>
+					<li
+						class="list-group-item d-flex justify-content-between align-items-center">
+						Fee <span class="badge badge-pill text-dark"><b>0.00 USD</b></span>
+					</li>
+					<li
+						class="list-group-item d-flex justify-content-between align-items-center">
+						<b>Total Payment</b><span class="badge badge-pill text-dark"
+						style="font-size: 18px;"><b>10.00 USD</b></span>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+
+		<div style="padding-top: 5px"
+			class="input-group input-group-lg mb-3 account-number-container mt-3">
+			<label>Hattha Bank Account Number</label>
+			<div class="input-group-prepend">
+				<span class="input-group-text"><img
+					th:src="@{/img/wallet-icon.svg}" alt=" "></span>
+			</div>
+			<input id="account-number" type="text" class="form-control"
+				placeholder="XXX XXX XXX XXX">
+			<div class="input-group-append">
+				<span class="input-group-text" data-toggle="tooltip"
+					data-placement="bottom"
+					title="You can get your savings account number from Hattha mobile
+          app or check on account card that provided by customer service."><img
+					th:src="@{/img/info-icon.svg}"></span>
+			</div>
+		</div>
+
+		<div class="otp mt-5">
+			<div class="content">
+				<b>OTP</b> sent via <b>SMS</b> to phone number +85578***998 that
+				have registered with Hattha bank account
+			</div>
+			<div class="input-group input-group-lg mb-3 account-number-container">
+				<label>Enter OTP</label>
+				<div class="input-group-prepend">
+					<span class="input-group-text"><img
+						th:src="@{/img/wallet-icon.svg}" alt=" "></span>
+				</div>
+				<input type="text" class="form-control"
+					placeholder="XXX XXX XXX XXX">
+
+			</div>
+		</div>
+
+		<div>
+			<button class="btn btn-primary btn-next">NEXT</button>
+		</div>
+
+		<button class="btn btn-primary" type="button" disabled>
+			<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+			Loading...
+		</button>
+
+		<div class="session">
+			Session timeout in <span id="countdownSession">14:59</span>
+		</div>
+	</div>
+
+
+	<!-- Modal -->
+	<div id="modalWarning" class="modal modal-warning fade" tabindex="-1"
+		role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+
+				<div class="modal-body">
+					<img th:src="@{/img/warning-icon.png}" alt="">
+					<h5 class="modal-title">Message</h5>
+					<p class="modal-description">You try to attempt many OTP,
+						please try again later in next 30 minutes</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-link btn-ok"
+						data-dismiss="modal">OK</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Loading -->
+	<div id="loading">
+		<div class="loading-content">
+			<div class="spinner-bg">
+				<div class="spinner-border" role="status">
+					<span class="sr-only">Loading...</span>
+				</div>
+			</div>
+			<div class="spinner-content">
+				Payment is processing... <br> Please do not close this page!
+			</div>
+		</div>
+	</div>
+
+	<script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/4.6.1/js/bootstrap.bundle.min.js}"></script>
+	<script
+		th:src="@{/webjars/jquery-maskedinput/1.3.1/jquery.maskedinput.min.js}"></script>
+	<script th:src="@{/js/app.min.js}"></script>
+</body>
+</html>
